@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
-    @Modifying
-    @Query("Update User u SET u.password =: password WHERE u.id =: id")
-    public User updatePassword(@Param("id") int id, @Param("password") String password);
+//    @Modifying
+//    @Query("Update User u SET u.password =: password WHERE u.id =: id")
+//    public User updatePassword(@Param("id") int id, @Param("password") String password);
 }
