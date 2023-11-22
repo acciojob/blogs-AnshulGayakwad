@@ -32,7 +32,14 @@ public class ImageService {
     }
 
     public void deleteImage(Integer id){
-        blogRepository2.deleteById(id);
+        Image image = imageRepository2.findById(id).get();
+        Blog blog = image.getBlog();
+        List<Image> imagesList = blog.getImageList();
+        imagesList.remove(image);
+        blog.setImageList(imagesList);
+
+        imageRepository2.deleteById(id);
+        //blogRepository2.deleteById(id);
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
