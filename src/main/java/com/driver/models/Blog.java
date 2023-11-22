@@ -65,4 +65,12 @@ public class Blog {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public List<Image> getImageList() {
+        return imageList;
+    }
+
+    public void setImageList(List<Image> imageList) {
+        this.imageList = imageList;
+    }
 }
