@@ -33,14 +33,16 @@ public class ImageService {
 
     public void deleteImage(Integer id){
         Image image = imageRepository2.findById(id).get();
-        Blog blog = image.getBlog();
-        List<Image> imagesList = blog.getImageList();
-        imagesList.remove(image);
-        blog.setImageList(imagesList);
+        if (image != null) {
+            Blog blog = image.getBlog();
+            List<Image> imagesList = blog.getImageList();
+            imagesList.remove(image);
+            blog.setImageList(imagesList);
 
-        imageRepository2.deleteById(id);
-        blogRepository2.save(blog);
-        //blogRepository2.deleteById(id);
+            imageRepository2.deleteById(id);
+            blogRepository2.save(blog);
+            //blogRepository2.deleteById(id);
+        }
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
@@ -84,13 +86,6 @@ public class ImageService {
         int screenWidth = Integer.parseInt(screenX);
         int screenHeight = Integer.parseInt(screenY);
 
-        //THIS COMMENTED LOGIC IS NOT WORKING DON'T KNOW WHY. ASK IN DOUBT
-        // int totalImageDimension = imageWidth * imageHeight;
-        // int totalScreenDimension = screenWidth * screenHeight;
-        // int count = totalScreenDimension/totalImageDimension;
-
-
-        // Final count
         int count = (screenWidth/imageWidth) * (screenHeight/imageHeight);
 
         return count;
