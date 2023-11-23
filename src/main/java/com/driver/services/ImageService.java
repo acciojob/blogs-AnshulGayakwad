@@ -39,6 +39,7 @@ public class ImageService {
         blog.setImageList(imagesList);
 
         imageRepository2.deleteById(id);
+        blogRepository2.save(blog);
         //blogRepository2.deleteById(id);
     }
 
