@@ -1,6 +1,7 @@
 package com.driver.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        blogList = new ArrayList<>();
     }
 
     public int getId() {

@@ -44,6 +44,7 @@ public class BlogService {
         blogsList.remove(blog);
         user.setBlogList(blogsList);
 
-        blogRepository1.deleteById(blogId);
+        userRepository1.save(user);
+        //blogRepository1.deleteById(blogId);
     }
 }
