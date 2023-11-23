@@ -32,17 +32,17 @@ public class ImageService {
     }
 
     public void deleteImage(Integer id){
-        Image image = imageRepository2.findById(id).get();
-        if (image != null) {
-            Blog blog = image.getBlog();
-            List<Image> imagesList = blog.getImageList();
-            imagesList.remove(image);
-            blog.setImageList(imagesList);
+//        Image image = imageRepository2.findById(id).get();
+//        if (image != null) {
+//            Blog blog = image.getBlog();
+//            List<Image> imagesList = blog.getImageList();
+//            imagesList.remove(image);
+//            blog.setImageList(imagesList);
 
             imageRepository2.deleteById(id);
-            blogRepository2.save(blog);
+//            blogRepository2.save(blog);
             //blogRepository2.deleteById(id);
-        }
+        //}
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
